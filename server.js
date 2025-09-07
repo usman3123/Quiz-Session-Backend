@@ -33,7 +33,10 @@ app.post("/save-score", (req, res) => {
   const newScore = {
     name,
     score,
-    date: new Date().toLocaleString()
+    date: new Date().toLocaleString("en-US", { 
+    timeZone: "Asia/Karachi", 
+    hour12: true 
+    })
   };
 
   // Naya score add karo
