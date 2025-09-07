@@ -11,6 +11,14 @@ app.get("/", (req, res) => {
   res.send("Server chal raha hai Usman bhai 🚀");
 });
 
+app.get("/scores", (req, res) => {
+  let scores = [];
+  if (fs.existsSync("scores.json")) {
+    scores = JSON.parse(fs.readFileSync("scores.json"));
+  }
+  res.json(scores);
+});
+
 // ✅ Naya route: score save karna
 app.post("/save-score", (req, res) => {
   const { name, score } = req.body;
